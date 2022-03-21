@@ -101,14 +101,15 @@ def brukerhistorie1():
             break
 
     notater = input("Skriv inn smaksnotatet: ")
-    d1 = date.today().strftime("%d/%m/%Y")
-    cursor.execute(f"Insert into kaffesmaking VALUES ({notater}, {poeng}, {d1}, {brukerID}, {kaffeID})")
+    dato = input("Skriv inn dato (dd.mm.åååå) : ")
+    cursor.execute(f"Insert into kaffesmaking VALUES ({notater}, {poeng}, {dato}, {brukerID}, {kaffeID})")
 
 
 
 if __name__ == '__main__':
     connection = sqlite3.connect("coffee.db")
     cursor = connection.cursor()
+    loggInn()
 
 
 
