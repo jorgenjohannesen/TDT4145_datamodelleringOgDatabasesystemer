@@ -5,10 +5,13 @@ from sqlite3 import DatabaseError
 
 
 def erValidEpostadresse(epostadresse):
-    connection = sqlite3.connect("coffee.db")
+    connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM bruker WHERE epostadresse = ?", epostadresse)
+    cursor.execute(f"SELECT * FROM bruker WHERE epostadresse = {epostadresse}")
+    print("hei")
     row = cursor.fetchone()
+    print(row)
+    print(len(row))
     if len(row) <= 0:
         raise DatabaseError
     connection.close()
@@ -43,7 +46,7 @@ def loggInn():
 
 
 def erValidBrenneri(brenneri):
-    connection = sqlite3.connect("coffee.db")
+    connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
     cursor.execute("SELECT navn FROM kaffebrenneri WHERE navn = ?", brenneri)
     row = cursor.fetchone()
@@ -53,7 +56,7 @@ def erValidBrenneri(brenneri):
     connection.close()
 
 def erValidKaffeFraBrenneri(kaffe, brenneri):
-    connection = sqlite3.connect("coffee.db")
+    connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
     cursor.execute("SELECT kaffeID "
                    "FROM kaffe JOIN kaffebrenneri USING brenneriID"
@@ -107,9 +110,5 @@ def brukerhistorie1():
 
 
 if __name__ == '__main__':
-    connection = sqlite3.connect("coffee.db")
-    cursor = connection.cursor()
-    loggInn()
-
-
+    brukerhistorie1()
 
