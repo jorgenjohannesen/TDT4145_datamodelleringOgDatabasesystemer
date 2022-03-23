@@ -41,7 +41,7 @@ CREATE TABLE kaffesmaking (
 CREATE TABLE kaffe (
     kaffeID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     kaffe_navn VARCHAR(30),
-    beskrivelse VARCHAR(30),
+    kaffe_beskrivelse VARCHAR(30),
     kiloprisINOK INTEGER,
     brenningsgrad VARCHAR(30),
     brenning_dato VARCHAR(30),
@@ -101,7 +101,7 @@ CREATE TABLE gaard (
 CREATE TABLE foredlingsmetode (
     foredlingsID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     metode_navn VARCHAR(30),
-    beskrivelse VARCHAR(30)
+    metode_beskrivelse VARCHAR(30)
 );
 
 CREATE TABLE kaffeboenne (

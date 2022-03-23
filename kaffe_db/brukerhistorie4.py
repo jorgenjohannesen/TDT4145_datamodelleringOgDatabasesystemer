@@ -1,12 +1,20 @@
 import sqlite3
 
-def userStory4():
-    con = sqlite3.connect("database.db")
-    cursor = con.cursor()
-    cursor.execute("SELECT roastedCoffee.name, coffeeRoastery.roasteryName "
-                   "FROM review NATURAL JOIN roastedCoffee NATURAL JOIN coffeeRoastery "
-                   "WHERE reviewNote LIKE '%floral%' OR roastedCoffee.description LIKE '%floral%' GROUP BY roastedCoffee.roastedCoffeeID")
+def brukerhistorie4():
+    connection = sqlite3.connect("kaffe.db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT brenneri_navn, kaffe_navn "
+                   "FROM kaffesmaking NATURAL JOIN kaffe NATURAL JOIN kaffebrenneri "
+                   "WHERE notater LIKE '%floral%' GROUP BY kaffeID "
+                   "UNION "
+                   "SELECT brenneri_navn, kaffe_navn "
+                   "FROM kaffe NATURAL JOIN kaffebrenneri "
+                   "WHERE kaffe_beskrivelse LIKE '%floral%' GROUP BY kaffeID ")
     rows = cursor.fetchall()
-    print("Hver kaffe som har en anmeldelse eller beskrivelse som er beskrevet som 'Floral: \n ")
-    print(rows)
-    con.close()
+    print("Hver kaffe som har en anmeldelse eller beskrivelse som er beskrevet som 'Floral': \n ")
+    for row in rows:
+        print(row)
+    connection.close()
+
+if __name__ == '__main__':
+    brukerhistorie4()
