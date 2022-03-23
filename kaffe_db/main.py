@@ -9,15 +9,15 @@ if __name__ == '__main__':
     running = True
     while running:
         if (brukerInput == '1'):
-            brukerhistorie1()
+            brukerhistorie1.brukerhistorie1()
         elif (brukerInput == '2'):
-            brukerhistorie2()
+            brukerhistorie2.brukerhistorie2()
         elif (brukerInput == '3'):
-            brukerhistorie3()
+            brukerhistorie3.brukerhistorie3()
         elif (brukerInput == '4'):
-            brukerhistorie4()
+            brukerhistorie4.brukerhistorie4()
         elif (brukerInput == '5'):
-            brukerhistorie5
+            brukerhistorie5.brukerhistorie5()
         elif (brukerInput == 'q'):
             running = False
         else:

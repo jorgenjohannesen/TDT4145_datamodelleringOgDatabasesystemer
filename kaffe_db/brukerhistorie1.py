@@ -34,7 +34,7 @@ def loggInn():
 def erValidBrenneri(brenneri):
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
-    cursor.execute("SELECT brenneriID FROM kaffebrenneri WHERE navn = ?", (brenneri,))
+    cursor.execute("SELECT brenneriID FROM kaffebrenneri WHERE brenneri_navn = ?", (brenneri,))
     row = cursor.fetchone()
     if not row:
         raise DatabaseError
@@ -47,7 +47,7 @@ def erValidKaffeFraBrenneri(kaffe, brenneriID):
     cursor = connection.cursor()
     cursor.execute('''SELECT kaffeID 
     FROM kaffe  
-    WHERE navn = ? AND brenneriID = ?''', (kaffe, brenneriID))
+    WHERE kaffe_navn = ? AND brenneriID = ?''', (kaffe, brenneriID))
     row = cursor.fetchone()
     if not row:
         raise DatabaseError
@@ -95,10 +95,12 @@ def brukerhistorie1():
 
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
-    cursor.execute('''INSERT INTO kaffesmaking(notater, poeng, dato, brukerID, kaffeID) 
+    cursor.execute('''INSERT INTO kaffesmaking(notater, poeng, smaking_dato, brukerID, kaffeID) 
     VALUES (?,?,?,?,?) ''', (notater, poeng, dato, brukerID, kaffeID))
     connection.commit()
     connection.close()
 
     print("Du har lagt til en smaking!")
-    print(notater)
+
+if __name__ == '__main__':
+    brukerhistorie1()

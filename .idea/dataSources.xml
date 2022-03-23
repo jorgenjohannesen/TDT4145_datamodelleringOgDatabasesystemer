@@ -27,5 +27,12 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="kaffe.db" uuid="843a7da1-4e35-43ba-a8c3-35c948bb241a">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/kaffe_db/kaffe.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
