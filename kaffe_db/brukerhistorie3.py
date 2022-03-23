@@ -12,6 +12,6 @@ def brukerhistorie3():
     for row in rows:
         print(row)
     connection.close()
-
+    return
 if __name__ == '__main__':
     brukerhistorie3()

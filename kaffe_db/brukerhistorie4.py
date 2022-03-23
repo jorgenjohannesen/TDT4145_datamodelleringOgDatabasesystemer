@@ -10,11 +10,13 @@ def brukerhistorie4():
                    "SELECT brenneri_navn, kaffe_navn "
                    "FROM kaffe NATURAL JOIN kaffebrenneri "
                    "WHERE kaffe_beskrivelse LIKE '%floral%' GROUP BY kaffeID ")
+
     rows = cursor.fetchall()
     print("Hver kaffe som har en anmeldelse eller beskrivelse som er beskrevet som 'Floral': \n ")
     for row in rows:
         print(row)
     connection.close()
+    return
 
 if __name__ == '__main__':
     brukerhistorie4()

@@ -10,10 +10,10 @@ def brukerhistorie2():
                    WHERE smaking_dato LIKE '%{year}%'
                    GROUP BY bruker.brukerID ORDER BY antall_typer DESC''')
     rows = cursor.fetchall()
-    print("Brukere som har anmeldt flest unike kaffer i synkende rekkefølge: \n")
+    print("Brukere som har smakt flest unike kaffer i synkende rekkefølge: \n")
     print(rows)
     connection.close()
-
+    return
 
 if __name__ == '__main__':
     brukerhistorie2()

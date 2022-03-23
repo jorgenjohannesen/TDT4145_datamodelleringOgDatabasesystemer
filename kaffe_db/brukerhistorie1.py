@@ -101,6 +101,8 @@ def brukerhistorie1():
     connection.close()
 
     print("Du har lagt til en smaking!")
+    return
+
 
 if __name__ == '__main__':
     brukerhistorie1()
