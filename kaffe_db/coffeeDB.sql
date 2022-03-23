@@ -25,7 +25,7 @@ CREATE TABLE kaffesmaking (
     smakingID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     notater VARCHAR(30),
     poeng INTEGER,
-    dato DATE,
+    smaking_dato DATE,
     brukerID INTEGER,
     kaffeID INTEGER,
     CONSTRAINT kaffesmaking_fk1 FOREIGN KEY (brukerID) 
@@ -40,11 +40,11 @@ CREATE TABLE kaffesmaking (
 
 CREATE TABLE kaffe (
     kaffeID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    navn VARCHAR(30),
+    kaffe_navn VARCHAR(30),
     beskrivelse VARCHAR(30),
     kiloprisINOK INTEGER,
     brenningsgrad VARCHAR(30),
-    dato VARCHAR(30),
+    brenning_dato VARCHAR(30),
     brenneriID INTEGER,
     partiID INTEGER,
     CONSTRAINT kaffe_fk1 FOREIGN KEY (brenneriID) 
@@ -59,7 +59,7 @@ CREATE TABLE kaffe (
 
 CREATE TABLE kaffebrenneri (
     brenneriID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    navn VARCHAR(30)
+    brenneri_navn VARCHAR(30)
 );
 
 CREATE TABLE kaffeparti (
@@ -92,7 +92,7 @@ CREATE TABLE boenneIParti (
 
 CREATE TABLE gaard (
     gaardID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    navn VARCHAR(30),
+    gaard_navn VARCHAR(30),
     moh INTEGER,
     land VARCHAR(30),
     region VARCHAR(30)
@@ -100,13 +100,13 @@ CREATE TABLE gaard (
 
 CREATE TABLE foredlingsmetode (
     foredlingsID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    navn VARCHAR(30),
+    metode_navn VARCHAR(30),
     beskrivelse VARCHAR(30)
 );
 
 CREATE TABLE kaffeboenne (
     boenneID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    navn VARCHAR(30),
+    boenne_navn VARCHAR(30),
     art VARCHAR(30)
 );
 
