@@ -8,7 +8,7 @@ def erValidEpostadresse(epostadresse):
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM bruker WHERE epostadresse = ?", (epostadresse,))
     row = cursor.fetchone()
-    if len(row) <= 0:
+    if not row:
         raise DatabaseError
     connection.close()
     return row[0], row[3]
@@ -38,7 +38,7 @@ def erValidBrenneri(brenneri):
     cursor = connection.cursor()
     cursor.execute("SELECT brenneriID FROM kaffebrenneri WHERE navn = ?", (brenneri,))
     row = cursor.fetchone()
-    if len(row) <= 0:
+    if not row:
         raise DatabaseError
     connection.close()
     return row[0]
@@ -51,7 +51,7 @@ def erValidKaffeFraBrenneri(kaffe, brenneriID):
     FROM kaffe  
     WHERE navn = ? AND brenneriID = ?''', (kaffe, brenneriID))
     row = cursor.fetchone()
-    if len(row) <= 0:
+    if not row:
         raise DatabaseError
     connection.close()
     return row[0]
@@ -70,7 +70,6 @@ def brukerhistorie1():
             continue
         else:
             break
-
         # Henter kaffe fra bruker og sjekker om den finnes hos brenneriet
     while True:
         try:
@@ -97,11 +96,14 @@ def brukerhistorie1():
     dato = input("Skriv inn dato (dd.mm.åååå) : ")
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
-    cursor.execute('''Insert into kaffesmaking 
+    cursor.execute('''INSERT INTO kaffesmaking(notater, poeng, dato, brukerID, kaffeID) 
     VALUES (?,?,?,?,?) ''', (notater, poeng, dato, brukerID, kaffeID))
+    connection.commit()
     connection.close()
+    print("Du har lagt til en smaking!")
+    print(notater)
 
 
 if __name__ == '__main__':
-    #brukerhistorie1()
+    brukerhistorie1()
     
