@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/coffee.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="kaffe.db" uuid="62ce4fa9-270d-4577-a658-478781d6e3b8">
+    <data-source source="LOCAL" name="kaffe.db" uuid="bda10a8f-a711-4157-bbcf-0855349585f8">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
