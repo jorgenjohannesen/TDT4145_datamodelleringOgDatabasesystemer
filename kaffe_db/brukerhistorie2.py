@@ -1,6 +1,6 @@
 import sqlite3
 from datetime import date
-
+# Brukerhistorie 2
 def brukerhistorie2():
     year = date.today().year
     connection = sqlite3.connect("kaffe.db")

@@ -1,6 +1,8 @@
 import sqlite3
 from sqlite3 import DatabaseError
 
+
+# Sjekker om epostadresse er gyldig
 def erValidEpostadresse(epostadresse):
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
@@ -11,7 +13,7 @@ def erValidEpostadresse(epostadresse):
     connection.close()
     return row[0], row[3]
 
-
+# Logg inn metode. Sjekker om påloggingsinformasjonen stemmer
 def loggInn():
     while True:
         try:
@@ -23,6 +25,8 @@ def loggInn():
             break
     while True:
         passordSkrevetInn = input("Skriv inn passord: ")
+        # Vi har forståelse for at dette ikke holder mtp sikkerhet, men siden dette
+        # ikke er fokus for prosjektet valgte vi å ha en mindre spørring.
         if passord == passordSkrevetInn:
             break
         else:
@@ -30,7 +34,7 @@ def loggInn():
             continue
     return brukerID
 
-
+# Sjekker om brenneriet finnes i databasen
 def erValidBrenneri(brenneri):
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
@@ -41,12 +45,12 @@ def erValidBrenneri(brenneri):
     connection.close()
     return row[0]
 
-
+# Sjekker om kaffebrenneriet brenner den nevnte kaffen
 def erValidKaffeFraBrenneri(kaffe, brenneriID):
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
     cursor.execute('''SELECT kaffeID 
-    FROM kaffe  
+    FROM kaffe
     WHERE kaffe_navn = ? AND brenneriID = ?''', (kaffe, brenneriID))
     row = cursor.fetchone()
     if not row:
@@ -54,7 +58,7 @@ def erValidKaffeFraBrenneri(kaffe, brenneriID):
     connection.close()
     return row[0]
 
-
+# Brukerhistorie 1
 def brukerhistorie1():
     brukerID = loggInn()
 
@@ -91,7 +95,7 @@ def brukerhistorie1():
             break
 
     notater = input("Skriv inn smaksnotatet: ")
-    dato = input("Skriv inn dato (dd.mm.åååå) : ")
+    dato = input("Skriv inn dato (dd/mm/åååå) : ")
 
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()

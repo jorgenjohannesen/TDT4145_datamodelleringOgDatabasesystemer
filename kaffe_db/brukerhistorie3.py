@@ -1,5 +1,5 @@
 import sqlite3
-
+# Brukerhistorie 3
 def brukerhistorie3():
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
