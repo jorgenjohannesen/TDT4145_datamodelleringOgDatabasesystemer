@@ -5,13 +5,15 @@ def brukerhistorie2():
     year = date.today().year
     connection = sqlite3.connect("kaffe.db")
     cursor = connection.cursor()
-    cursor.execute(f'''SELECT bruker.fullt_navn, COUNT(DISTINCT smakingID) as antall_typer
+    cursor.execute(f'''SELECT fullt_navn, COUNT(DISTINCT kaffeID) as antall_typer
                    FROM bruker NATURAL JOIN kaffesmaking 
                    WHERE smaking_dato LIKE '%{year}%'
-                   GROUP BY bruker.brukerID ORDER BY antall_typer DESC''')
+                   GROUP BY brukerID ORDER BY antall_typer DESC''')
     rows = cursor.fetchall()
-    print("Brukere som har smakt flest unike kaffer i synkende rekkefølge: \n")
-    print(rows)
+    print("Disse brukerne har smakt flest unike kaffer så langt i år: \n")
+    print("(Brukers fulle navn, antall unike kaffer smakt i år)")
+    for row in rows:
+        print(row)
     connection.close()
     return
 

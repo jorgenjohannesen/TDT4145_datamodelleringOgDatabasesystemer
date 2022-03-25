@@ -12,7 +12,8 @@ def brukerhistorie4():
                    "WHERE kaffe_beskrivelse LIKE '%floral%' GROUP BY kaffeID ")
 
     rows = cursor.fetchall()
-    print("Hver kaffe som har en anmeldelse eller beskrivelse som er beskrevet som 'Floral': \n ")
+    print("Kaffer hvor en smaking eller en beskrivelse inneholder ordet 'Floral': \n ")
+    print("(Navn på brenneri, Navn på kaffe)")
     for row in rows:
         print(row)
     connection.close()

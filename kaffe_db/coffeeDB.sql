@@ -16,9 +16,9 @@ DROP TABLE IF EXISTS art;
 
 CREATE TABLE bruker (
     brukerID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    epostadresse VARCHAR(30),
-    fullt_navn VARCHAR(30),
-    passord VARCHAR(30)
+    epostadresse VARCHAR(30) NOT NULL,
+    fullt_navn VARCHAR(30) NOT NULL,
+    passord VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE kaffesmaking (
@@ -146,8 +146,8 @@ INSERT INTO foredlingsmetode VALUES (2, 'Bærtørket', 'Med hårføner') ;
 INSERT INTO foredlingsmetode VALUES (3, 'Semi-vasket', 'Kun vann');
 INSERT INTO foredlingsmetode VALUES (4, 'Soltørket', 'Tørket i solen');
 
-INSERT INTO kaffeparti VALUES (1, 2018, 12, 4, 2);
-INSERT INTO kaffeparti VALUES (2, 2020, 7, 3, 4);
+INSERT INTO kaffeparti VALUES (1, 2018, 12, 3, 2);
+INSERT INTO kaffeparti VALUES (2, 2020, 7, 4, 4);
 INSERT INTO kaffeparti VALUES (3, 2022, 4, 2, 2);
 INSERT INTO kaffeparti VALUES (4, 2020, 10, 1, 3);
 INSERT INTO kaffeparti VALUES (5, 2021, 8, 2, 5);
@@ -155,7 +155,7 @@ INSERT INTO kaffeparti VALUES (5, 2021, 8, 2, 5);
 INSERT INTO kaffe VALUES (1, 'Kveldsro', 'Kaffe med lite koffein, fin på kveldstid.', 150, 'Lys', '05/01/2022', 2, 1);
 INSERT INTO kaffe VALUES (2, 'Oppkvikkern', 'Rask energi på morgenen, denne er det krutt i.', 60, 'Mørk', '01/03/2022', 3, 3)  ;
 INSERT INTO kaffe VALUES (3, 'Dark Heaven', 'En mørk som kjennes i hele kroppen.', 90, 'Mørk', '08/12/2022', 1, 2);
-INSERT INTO kaffe VALUES (4, 'Bakfull', 'En kaffe perfekt for dagen derpå', 120, 'Middels', '22/02/2022', 4, 4);
+INSERT INTO kaffe VALUES (4, 'Bakfull', 'En kaffe perfekt for dagen derpå, floral i formen.', 120, 'Middels', '22/02/2022', 4, 4);
 INSERT INTO kaffe VALUES (5, 'Vinterkaffe 2022', 'En velsmakende og kompleks kaffe for mørketiden', 600, 'Lys', '20/01/2022', 5, 5);
 
 INSERT INTO kaffebrenneri VALUES (1, 'Kaffebrenneriet');
@@ -179,4 +179,5 @@ INSERT INTO boenneDyrkesAv VALUES (1, 5);
 INSERT INTO kaffesmaking VALUES (1,'Meget god kaffe, fin farge og aroma',8,'05/03/2022',1,3);
 INSERT INTO kaffesmaking VALUES (2,'Fikk meg umiddelbart i form på blåmandag, kanskje litt bitter for min smak',7,'22/02/2022',3,2);
 INSERT INTO kaffesmaking VALUES (3,'Ikke verdt den høye prisen. En god kaffe, men ikke helt der oppe.',3,'07/02/2022',1,4);
-INSERT INTO kaffesmaking VALUES (4,'God kaffe, gleder meg til å severe denne til gjester.',6,'05/12/2021',2,1);
+INSERT INTO kaffesmaking VALUES (4,'God kaffe, gleder meg til å severe denne til gjester. Floral og fin!',6,'05/12/2022',2,1);
+INSERT INTO kaffesmaking VALUES (5,'Fin farge og aroma, men litt for sterk for meg',6,'05/01/2022',2,2);

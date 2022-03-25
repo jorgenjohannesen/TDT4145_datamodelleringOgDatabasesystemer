@@ -8,7 +8,8 @@ def brukerhistorie3():
                    "GROUP BY kaffe.kaffeID ORDER "
                    "BY (gjennomsnittsPoeng / kiloprisINOK) DESC ")
     rows = cursor.fetchall()
-    print("Hver kaffe og dens brenneri med gjennomsnittspoeng delt på kilopris i synkende rekkefølge: \n  ")
+    print("Kaffer med høyest gjennomsnittspoeng i forhold til pris: \n  ")
+    print("(Navn på kaffen, Navn på brenneri, gjennomsnittsscore, kilopris)")
     for row in rows:
         print(row)
     connection.close()
