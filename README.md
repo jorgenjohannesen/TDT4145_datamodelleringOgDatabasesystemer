@@ -1,4 +1,4 @@
-# tdt4145_prosjekt
+# TDT4145_datamodelleringOgDatabasesystemer
 
 ## Beskrivelse
 Prosjekt gjennomført som del av emnet TDT4145 - Datamodellering og Databaser.
